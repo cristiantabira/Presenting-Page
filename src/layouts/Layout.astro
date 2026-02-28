@@ -1,12 +1,28 @@
+---
+// Aici este Frontmatter-ul (DOAR codul de mai jos)
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+
+import "../styles/global.css"; 
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="ro">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<title>{title}</title>
+		<meta name="description" content="Descriere scurtă și convingătoare." />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
 	</head>
 	<body>
 		<slot />
@@ -14,6 +30,7 @@
 </html>
 
 <style>
+	/* Dacă vrei să păstrezi stilurile astea, ele trebuie să fie CSS valid */
 	html,
 	body {
 		margin: 0;
